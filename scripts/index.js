@@ -5,8 +5,11 @@ const partidaSave = JSON.parse(localStorage.getItem("truco"))
 const p1Nombre = "Nosotros"
 const p2Nombre = "Ellos"
 
-const p1 = new Contador(p1Nombre, document.getElementById("playerContainer"), partidaSave[p1Nombre])
-const p2 = new Contador(p2Nombre, document.getElementById("playerContainer2"), partidaSave[p2Nombre])
+const p1 = new Contador(p1Nombre, document.getElementById("playerContainer"), 
+    // si existe la partida y hay una partida con "ese" nombre, mando dicha partida, sino un 0
+    partidaSave && partidaSave[p1Nombre] ? partidaSave[p1Nombre] :0)
+const p2 = new Contador(p2Nombre, document.getElementById("playerContainer2"), 
+    partidaSave && partidaSave[p2Nombre] ? partidaSave[p2Nombre] :0)
 
 const reset = ()=>{
     p1.reset()
