@@ -1,9 +1,12 @@
 import {Contador} from "./Counter.js"
 
 const modal = document.querySelector("dialog")
+const partidaSave = JSON.parse(localStorage.getItem("truco"))
+const p1Nombre = "Nosotros"
+const p2Nombre = "Ellos"
 
-const p1 = new Contador("Nosotros", document.getElementById("playerContainer"))
-const p2 = new Contador("Ellos", document.getElementById("playerContainer2"))
+const p1 = new Contador(p1Nombre, document.getElementById("playerContainer"), partidaSave[p1Nombre])
+const p2 = new Contador(p2Nombre, document.getElementById("playerContainer2"), partidaSave[p2Nombre])
 
 const reset = ()=>{
     p1.reset()
@@ -20,7 +23,13 @@ document.getElementById("accept").addEventListener("click",()=> {
     modal.close()
 })
 
-
-// p1.agregar(5)
-// p1.agregar()
-// p2.agregar()
+document.querySelectorAll("button").forEach(button =>{
+    button.addEventListener("click", () =>{
+        const save = {
+            [p1.nombre] : p1.numero,
+            [p2.nombre] : p2.numero,
+        }
+    
+        localStorage.setItem("truco", JSON.stringify(save))
+    })
+})

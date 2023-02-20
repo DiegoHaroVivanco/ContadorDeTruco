@@ -1,5 +1,13 @@
+:root{
+    --top-vertical: 0;
+    --left-horizontal: 32px;
+    --dimensions-grupo: 72px;
+}
+
 *{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    user-select: none;
 }
 
 body{
@@ -10,6 +18,12 @@ body{
 .title{
     text-align: center;
     font-size: xx-large;
+    color: beige;
+}
+
+#footer{
+    color: beige;
+
 }
 
 #playersContaiter{
@@ -21,14 +35,14 @@ body{
 .subtitle{
     margin-top: 28px;
     font-size: x-large;
+    color: beige;
+
 }
 
 .playerContainer{
     width: 40vw ;
     min-height: 70vh;
-    background-color: rgb(165, 83, 35);
-    border-radius: 5px;
-    margin: 10px;
+    /* background-color: rgb(207, 79, 4); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,4 +58,56 @@ button{
 .buttonplayer{
     position: fixed;
     top: 64px;
+}
+
+img{
+    height: var(--dimensions-grupo);
+}
+
+.group{
+    position: relative;
+    width: var(--dimensions-grupo);
+    height: var(--dimensions-grupo);
+    margin: 10px;
+}
+
+.separator{
+    border-top: 5px solid black;
+    width: var(--dimensions-grupo);
+    margin: 10px;
+}
+
+.phosphor1{
+    position: absolute;
+    transform: rotate(90deg); /*90 grados el primer fosforo*/
+    top: -30px;
+    left: var(--left-horizontal);
+}
+
+.phosphor2{
+    position: absolute;
+    transform: rotate(180deg);
+    left: 65px;
+    top: var(--top-vertical);
+}
+
+.phosphor3{
+    position: absolute;
+    transform: rotate(270deg);
+    top: 32px;
+    left: var(--left-horizontal);
+}  
+
+.phosphor4{
+    position: absolute;
+    transform: rotate(0);
+    left: 0;
+    top: var(--top-vertical);
+}
+
+.phosphor5{
+    position: absolute;
+    transform: rotate(45deg);
+    top: 0;
+    left: 34px;
 }
